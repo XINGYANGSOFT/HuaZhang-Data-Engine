@@ -1,0 +1,56 @@
+li{
+	float:left;
+	list-style-type:none;
+	font-size: 13px;
+	color: #FFF;
+	padding: 0 15px 0 0;
+}
+
+body{
+	margin:0px;  
+	padding:0px;
+	position: relative;
+	background: #5a6374 no-repeat center center fixed url("/static/images/bg.jpg");
+	background-size: cover;
+	min-width: 1385px;
+	}
+#main{height: 500px;}
+#logoandbox{margin: 200px 0 0 150px;}
+#logo{
+	height:55px;
+	width:150px;
+	float: left;
+	}
+#searchbox{
+	height: 55px;
+	width: 612px;
+	/*background: blue;*/
+	float: left;
+	}
+input#keyword{
+	height: 39px;
+	width: 500px;
+	margin-top: 5px;
+	}
+input#submit{
+	height: 45px;
+	width: 100px;
+	margin: 0px;
+	}
+#foot{
+	 height: 40px;
+	 width: 100%;
+	 /*background:#ececec;*/
+	 padding: 10px 0 0 0; 
+	 min-width: 1000px;
+	 position: fixed;
+	 bottom: 0;
+	}
+#foot_left{
+	margin: 10px;
+	float: left; 
+	}
+#foot_right{
+	float: right;
+	margin: 10px;
+	}

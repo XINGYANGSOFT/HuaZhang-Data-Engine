@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" >
+	<meta charset="UTF-8">
+	<title>华章数据搜索引擎 - 华明中队云计算</title>
+	<style>
+		li{
+			float:left;
+			list-style-type:none;
+			font-size: 13px;
+			color: #FFF;
+			padding: 0 15px 0 0;
+		}
+		body{margin:0px;  padding:0px;}
+	</style>
+	<link rel="stylesheet" href="{% static 'images/css/index.css' %}" type="text/css">
+</head>
+<body>
+	<div id="head"></div>
+	<div id="main">
+		<div id="logoandbox">
+			<div id='logo'>
+			<img src="{% static 'images/indexlogo.png' %}" alt="logo">
+			</div>
+			<div id='searchbox'>
+		    	<form action="search/" method="GET">
+		        	<input id="keyword" type="text" value="" name="k" />
+		        	<input id="submit" type="submit" value="搜索" />
+		    	</form>
+			</div>	
+		</div>
+
+	</div>
+	{% include "foot.html" %}
+</body>
+</html>

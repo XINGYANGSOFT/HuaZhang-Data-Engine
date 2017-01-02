@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" >
+	<meta charset="UTF-8">
+	<title>{{title}} - 华章数据搜索 华明中队云计算服务</title>
+	<link rel="stylesheet" href="{% static 'images/css/search.css' %}" type="text/css">
+	<style type="text/css"> /*鼠标悬停表格变色*/
+	tr.change:hover
+	{
+	background-color:#e4e3e3
+	}
+</style>
+</head>
+<body>
+	<div id='head'>
+		<div id='logo'>
+			<a href="/"><img src="{% static 'images/logo.jpg' %}" alt="logo"></a>
+		</div>
+		<div id='searchbox'>
+		    <form action="" method="GET">
+		        <input id="keyword" type="text" value="{{title}}" name="k" />
+		        <input id="submit" type="submit" value="搜索" />
+		    </form>
+		</div>
+		<div id='banner'>
+		    <p></p>
+		</div>
+	</div>
+	<div id='body'>
+		<!-- <div id='body_space' style="height: 100%;width: 80px;float: left;"></div> -->
+	    <div id='body_main'>
+	    	<div id='menu'></div>
+	    	<div id='result'>
+	    		<div id='result_num'>
+	    			<li style="margin-top: 10px;">华章为您从在线的{{ servernum }}台服务器找到相关结果{{ resultsnumbers }}个，为您显示前200条</li>
+	    		</div>
+	    		<div id='result_main'>
+<!-- 	    		{% autoescape on %} -->
+	    			<table name="searchtable" style="text-align: left; font-size: 14px;">
+	    				<tr style="border-bottom:1px;border-color: #FFF;">
+	    					<th></th>
+	    					<th><a href="?k={{ title }}&s=name">文件名</a></th>
+	    					<th><a href="?k={{ title }}&s=path">路径</a></th>
+	    					<th><a href="?k={{ title }}&s=date_modified">修改日期</a></th>
+	    				</tr>	    				
+						{% for result in results %}
+	    				<tr class="change">
+	    					{% if result.type|length == 4 %}
+	    					<td><img src="{% static 'images/file.gif' %}" alt=""></td>
+	    					{% else %}
+	    					<td><img src="{% static 'images/folder.gif' %}" alt=""></td>
+	    					{% endif %}
+	    					<td style="word-break:break-all;;max-width: 300px;min-width: 100px;"><a href="http://{{ result.ip_all }}/{{ result.path }}/{{ result.name }}">{{ result.name }}</a></td>
+	    					<td style="word-wrap: break-word;max-width: 300px;min-width: 200px;;">{{ result.ip }}|{{ result.path }}</td>
+	    					<td style="width: 120px;">{{ result.date_modified }}</td>
+	    				</tr>
+	    			{% endfor %}
+	    			</table> 				
+<!--  				{{results}} -->
+<!--  				{% endautoescape %} -->
+	    		</div>
+	    	</div>
+	   	 <div id='page'></div>
+			</div>
+		</div>
+	{% include "foot.html" %}
+</body>
+</html>
